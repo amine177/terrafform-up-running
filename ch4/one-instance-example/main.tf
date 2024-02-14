@@ -2,17 +2,6 @@ provider "aws" {
   region = "us-east-2"
 }
 
-resource "aws_autoscaling_group" "example" {
-  launch_configuration = aws_launch_configuration.example.name
-  min_size = 1
-  max_size = 2
-  tag {
-    key = "Name"
-    value = "terrafrom-asg-example"
-    propagate_at_launch = true
-  }
-}
-
 resource "aws_instance" "example" {
   ami                    = "ami-0fb653ca2d3203ac1"
   instance_type          = "t2.micro"
